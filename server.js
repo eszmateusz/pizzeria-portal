@@ -20,7 +20,7 @@ server.get(/^\/panel.*/, (req,res) =>{
     res.sendFile(filePath);
   } else {
     res.sendFile(path.join(__dirname+'/build/index.html'));
-  }
+  } 
 });
 
 server.use(function(req, res, next) {
