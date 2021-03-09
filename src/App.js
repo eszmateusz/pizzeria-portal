@@ -8,9 +8,11 @@ import Tables from '../src/components/views/Tables/Tables';
 import Waiter from '../src/components/views/Waiter/Waiter';
 import Homepage from '../src/components/views/Homepage/Homepage';
 
-function App() {
-  return (
-    <BrowserRouter basename={'/panel'}>
+import { StylesProvider } from '@material-ui/core/styles';
+
+const App = () => (
+  <BrowserRouter basename={'/panel'}>
+    <StylesProvider injectFirst>
       <MainLayout>
         <Switch>
           <Route
@@ -40,8 +42,8 @@ function App() {
           />
         </Switch>
       </MainLayout>
-    </BrowserRouter>
-  );
-}
+    </StylesProvider>
+  </BrowserRouter>
+);
 
 export default App;
