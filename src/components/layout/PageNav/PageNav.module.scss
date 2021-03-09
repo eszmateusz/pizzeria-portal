@@ -1,7 +1,8 @@
 @import '../../../styles/settings.scss';
 
 .component {
-  padding: $base-size;
+  padding: $base-size 0;
+  margin-left: auto;
 }
 
 .link {
