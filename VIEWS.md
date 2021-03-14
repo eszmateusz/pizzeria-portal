@@ -18,16 +18,16 @@
         - każda kolumna = 1 stolik
         - każdy wiersz = 30 minut
         - ma przypominać widok tygodnia w kalendarzu Google, gdzie w kolumnach zamiast dni są różne stoliki
-        - po kliknieciu rezerwacji lub eventu, przechodzimy na stronę szczegółów
+        - po kliknięciu rezerwacji lub eventu, przechodzimy na stronę szczegółów
 * `/tables/booking/:id`
     - zamiera wszystkie informacje dotyczące rezerwacji 
-    - umozliwia edycję i zapisanie zmian
+    - umożliwia edycję i zapisanie zmian
 * `/tables/booking/new`
-    - j/w, bez poczatkowych informacji
+    - j/w, bez początkowych informacji
 * `/tables/events/:id`
     - j/w, dla eventów
 * `/tables/events/new`
-    - j/w, dla eventów, bez poczatkowych informacji
+    - j/w, dla eventów, bez początkowych informacji
 
 # Widok kelnera
 
@@ -36,14 +36,14 @@
       - w wierszach stoliki
       - w kolumnach różne rodzaje informacji (status, czas od ostatniej aktywności)
       - w ostatniej kolumnie dostępne akcje dla danego stolika
+* `/waiter/order/:id`
+    - jak niżej
 * `/waiter/order/new`
     - numer stolika (edytowalny)
     - menu produktów
     - opcje wybranego produktu
-    - zamowienie (zamówione produkty z opcjami i ceną)
+    - zamówienie (zamówione produkty z opcjami i ceną)
     - kwotę zamówienia
-* `/waiter/order/:id`
-    - j/w
 
 # Widok kuchni
 
@@ -52,4 +52,4 @@
     - lista musi zawierać:
       - numer stolika (lub zamówienia zdalnego)
       - pełne informacje dot. zamówionych dań
-    - na liście musi być możliwość oznaczenia zamowienia jako zrealizowane
+    - na liście musi być możliwość oznaczenia zamówienia jako zrealizowane
