@@ -21,7 +21,7 @@ import Kitchen from '../src/components/views/Kitchen/Kitchen';
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#2B4C6F' },
-    secondary: { main: '#ff1744'},
+    secondary: { main: '#ff1744' },
   },
 });
 
@@ -50,4 +50,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default App;

@@ -13,17 +13,19 @@ import TablesEventsId from '../TablesEventsId/TablesEventsId';
 
 const Tables = () => (
   <div className={styles.component}>
-    <h2>Tables view</h2>
+    <h2>Tables</h2>
+    <hr />
     <h3>Bookings</h3>
-    <Link to={`${process.env.PUBLIC_URL}/tables/booking/:id`}>Booking info </Link>
+    <Link to={`${process.env.PUBLIC_URL}/tables/booking/as897`}>Booking info</Link>
     <Fab color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>
       <AddIcon />
     </Fab>
-    <Link to={`${process.env.PUBLIC_URL}/tables/events/:id`}>Events info</Link>
+    <hr />
+    <h3>Events</h3>
+    <Link to={`${process.env.PUBLIC_URL}/tables/events/df14`}>Events info</Link>
     <Fab color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>
       <AddIcon />
     </Fab>
-
     <hr />
     <Switch>
       <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/new`} component={TablesBookingNew}/>

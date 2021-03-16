@@ -30,29 +30,33 @@ const renderActions = status => {
     case 'free':
       return (
         <>
-          <Button>thinking</Button>
-          <Button>new order</Button>
+          <Button color="secondary" variant="contained">thinking</Button>
+          <Fab size="small" color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
+            <AddIcon />
+          </Fab>
         </>
       );
     case 'thinking':
       return (
-        <Button>new order</Button>
+        <Fab size="small" color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
+          <AddIcon />
+        </Fab>
       );
     case 'ordered':
       return (
-        <Button>prepared</Button>
+        <Button color="secondary" variant="contained">prepared</Button>
       );
     case 'prepared':
       return (
-        <Button>delivered</Button>
+        <Button color="secondary" variant="contained">delivered</Button>
       );
     case 'delivered':
       return (
-        <Button>paid</Button>
+        <Button color="secondary" variant="contained">paid</Button>
       );
     case 'paid':
       return (
-        <Button>free</Button>
+        <Button color="secondary" variant="contained">free</Button>
       );
     default:
       return null;
@@ -60,50 +64,49 @@ const renderActions = status => {
 };
 
 const Waiter = () => (
-  <Paper className={styles.component}>
-    <h2>Waiter view</h2>
-    <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/1`}>Order details</Button>
-    <Fab color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
-      <AddIcon />
-    </Fab>
+  <div className={styles.component}>
+    <h2>Waiter</h2>
     <hr />
+    <h3>Active orders</h3>
+    <Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Table</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Order</TableCell>
+            <TableCell>Action</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {demoContent.map(row => (
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell>
+                {row.status}
+              </TableCell>
+              <TableCell>
+                {row.order && (
+                  <Link to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                    {row.order}
+                  </Link>
+                )}
+              </TableCell>
+              <TableCell>
+                {renderActions(row.status)}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Paper>
     <Switch>
       <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/new`} component={WaiterOrderNew}/>
       <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/:id`} component={WaiterOrderId}/>
     </Switch>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Table</TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Order</TableCell>
-          <TableCell>Action</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {demoContent.map(row => (
-          <TableRow key={row.id}>
-            <TableCell component="th" scope="row">
-              {row.id}
-            </TableCell>
-            <TableCell>
-              {row.status}
-            </TableCell>
-            <TableCell>
-              {row.order && (
-                <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                  {row.order}
-                </Button>
-              )}
-            </TableCell>
-            <TableCell>
-              {renderActions(row.status)}
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  </Paper>
+  </div>
 );
 
 export default Waiter;

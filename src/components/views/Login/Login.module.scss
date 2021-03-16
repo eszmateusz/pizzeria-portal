@@ -3,3 +3,28 @@
 .component {
   padding: $base-size;
 }
+
+.form {
+  width: 320px;
+  margin: 0 auto;
+  padding: 20px $base-size;
+  border: 1px solid lighten($color-background, 60%);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.input, .button {
+  margin: 10px auto;
+}
+
+.input {
+  flex: 0 0 70%;
+}
+
+.button {
+  flex: 0 0 50%;
+  text-align: center;
+}
