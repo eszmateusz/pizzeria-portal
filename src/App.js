@@ -14,7 +14,7 @@ import TablesBookingId from '../src/components/views/TablesBookingId/TablesBooki
 import TablesBookingNew from '../src/components/views/TablesBookingNew/TablesBookingNew';
 import TablesEventsId from '../src/components/views/TablesEventsId/TablesEventsId';
 import TablesEventsNew from '../src/components/views/TablesEventsNew/TablesEventsNew';
-import Waiter from '../src/components/views/Waiter/Waiter';
+import Waiter from '../src/components/views/Waiter/WaiterContainer';
 import WaiterOrderId from '../src/components/views/WaiterOrderId/WaiterOrderId';
 import WaiterOrderNew from '../src/components/views/WaiterOrderNew/WaiterOrderNew';
 import Kitchen from '../src/components/views/Kitchen/Kitchen';
