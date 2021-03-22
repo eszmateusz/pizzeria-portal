@@ -22,6 +22,7 @@ class Waiter extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool,PropTypes.string]),
     }),
     tables: PropTypes.array,
+    updateStatus: PropTypes.func,
   }
 
   componentDidMount(){
@@ -29,12 +30,14 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status) {
+  renderActions (orderId, status) {
+    const { updateStatus } = this.props;
+
     switch (status) {
       case 'free':
         return (
           <>
-            <Button color="secondary" variant="contained">thinking</Button>
+            <Button onClick={() => updateStatus(orderId, 'thinking')} color="secondary" variant="contained">thinking</Button>
             <Fab size="small" color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
               <AddIcon />
             </Fab>
@@ -48,19 +51,19 @@ class Waiter extends React.Component {
         );
       case 'ordered':
         return (
-          <Button color="secondary" variant="contained">prepared</Button>
+          <Button onClick={() => updateStatus(orderId, 'prepared')} color="secondary" variant="contained">prepared</Button>
         );
       case 'prepared':
         return (
-          <Button color="secondary" variant="contained">delivered</Button>
+          <Button onClick={() => updateStatus(orderId, 'delivered')} color="secondary" variant="contained">delivered</Button>
         );
       case 'delivered':
         return (
-          <Button color="secondary" variant="contained">paid</Button>
+          <Button onClick={() => updateStatus(orderId, 'paid')} color="secondary" variant="contained">paid</Button>
         );
       case 'paid':
         return (
-          <Button color="secondary" variant="contained">free</Button>
+          <Button onClick={() => updateStatus(orderId, 'free')} color="secondary" variant="contained">free</Button>
         );
       default:
         return null;
@@ -69,6 +72,7 @@ class Waiter extends React.Component {
 
   render() {
     const { loading: { active, error }, tables } = this.props;
+    console.log(tables);
 
     if(active || !tables.length) {
       return (
@@ -106,13 +110,13 @@ class Waiter extends React.Component {
                   </TableCell>
                   <TableCell>
                     {row.order && (
-                      <Link to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                      <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
                         {row.order}
-                      </Link>
+                      </Button>
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.id, row.status)}
                   </TableCell>
                 </TableRow>
               ))}
