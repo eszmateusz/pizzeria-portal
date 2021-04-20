@@ -24,11 +24,11 @@ import {
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 const data = [
-  { startDate: '2021-03-29 14:00', endDate: '2021-03-29 16:30', title: 'Alex Portney, table 1' },
-  { startDate: '2021-03-29 18:00', endDate: '2021-03-29 19:30', title: 'Tomas Kirby, table 2' },
-  { startDate: '2021-03-29 14:00', endDate: '2021-03-29 16:00', title: 'Blanka Kerth, table 3' },
-  { startDate: '2021-03-29 15:00', endDate: '2021-03-29 17:30', title: 'Katy Simpson, table 2' },
-  { startDate: '2021-03-29 19:00', endDate: '2021-03-29 20:30', title: 'John Tatcher, table 1' },
+  { startDate: '2021-04-21 14:00', endDate: '2021-04-21 16:30', title: 'Alex Portney, table 1' },
+  { startDate: '2021-04-21 18:00', endDate: '2021-04-21 19:30', title: 'Tomas Kirby, table 2' },
+  { startDate: '2021-04-21 14:00', endDate: '2021-04-21 16:00', title: 'Blanka Kerth, table 3' },
+  { startDate: '2021-04-21 15:00', endDate: '2021-04-21 17:30', title: 'Katy Simpson, table 2' },
+  { startDate: '2021-04-21 19:00', endDate: '2021-04-21 20:30', title: 'John Tatcher, table 1' },
 ];
 
 const Tables = () => (
@@ -59,10 +59,13 @@ const Tables = () => (
     <Fab color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>
       <AddIcon />
     </Fab>
+    <hr />
+
     <Link to={`${process.env.PUBLIC_URL}/tables/events/df14`}>Events info</Link>
     <Fab color='secondary' aria-label='add' component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>
       <AddIcon />
     </Fab>
+
     <hr />
     <Switch>
       <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/new`} component={TablesBookingNew}/>

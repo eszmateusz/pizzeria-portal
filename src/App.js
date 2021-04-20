@@ -47,6 +47,7 @@ function App() {
                 <Route exact path={process.env.PUBLIC_URL + '/waiter/order/:id'} component={WaiterOrderId} />
                 <Route exact path={process.env.PUBLIC_URL + '/waiter/order/new'} component={WaiterOrderNew} />
                 <Route exact path={process.env.PUBLIC_URL + '/kitchen'} component={Kitchen} />
+                <Route exact path={process.env.PUBLIC_URL + '/login'} component={Login} />
               </Switch>
             </MainLayout>
           </ThemeProvider>
